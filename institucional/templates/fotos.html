@@ -1,0 +1,15 @@
+{% extends 'baseadmin.html' %}	
+{% block content %}
+{% load cropping %}
+{% for f in fotos %}
+
+{%if f.foto_horizontal|length > 0 %}
+          <img src="{% cropped_thumbnail f 'cropping_horizontal'%}" class="fotos img-fluid"><br>
+          
+    {%endif%}
+	{%if f.foto_vertical|length > 0 %}
+          <img src="{% cropped_thumbnail f 'cropping_vertical'%}" class="fotos img-fluid">
+          
+    {%endif%}
+{%endfor%}
+{% endblock %}

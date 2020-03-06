@@ -1,0 +1,13 @@
+{% extends 'baseadmin.html' %}	
+{% block content %}
+{% load cropping %}
+{% for t in trabalhos %}
+<a href="/{{t.id}}/fotos">
+          <img src="{% cropped_thumbnail t 'cropping'%}" class="fotos img-fluid">
+          <div class="retina">
+            <h2>{{t.titulo}}</h2>
+            <p>{{t.desc}}</p>
+          </div>
+        </a>
+{%endfor%}
+{% endblock %}

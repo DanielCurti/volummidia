@@ -1,0 +1,23 @@
+{% extends 'baseadmin.html' %}	
+{% block content %}
+<form enctype="multipart/form-data" action="/upload" method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<select id="cliente" name="cliente">
+		{% for c in cliente %}
+		<option value={{c.usuario.id}}>{{c.usuario.first_name}} {{c.usuario.last_name}}</option>
+		{%endfor%}
+	</select>
+	<input type="submit" value="Enviar" class="form-control btn-success" />
+</form>
+<script type="text/javascript">
+	$(document).on('change', '#id_categoria', function(){
+          var opcao = $("#id_categoria").val();
+          if (opcao == "PS"){
+            $("#cliente").css('opacity', '1');
+          }else{
+            $("#cliente").css('opacity', '0');
+          }
+      });
+</script>
+{%endblock%}

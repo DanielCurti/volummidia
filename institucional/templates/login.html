@@ -1,0 +1,19 @@
+{% extends 'baseadmin.html' %}	
+{% block content %}
+
+<div class="mx-auto" style="width: 300px; padding-top: 100px">
+    <h3 align="center">Bem-vindo</h3>
+    <hr>
+<form action="/login_view" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" class="form-control btn-success" value="Entrar"/>
+	<br>
+	{{ mensagem }}
+</form>
+<br>
+<div align="center">
+<small class="text-muted">Ainda não tem uma conta?<a class="font-weight-bold" href="cadastro">Cadastre-se.</a></small>
+</div>
+</div>
+{% endblock %}
